@@ -20,8 +20,8 @@ public class Car {
     private double kilometers;
 
     /**
-     * Constructor d'un Cotxe a partir de la matricula i els
-     * kilòmetres totals recoreguts. La velocitat inicial és 0 km/h.
+     * Constructor d'un Cotxe a partir de la matrícula i els
+     * kilòmetres totals recorreguts. La velocitat inicial és 0 km/h.
      * @param plate Matrícula del cotxe
      * @param kilometers Kilòmetres recorreguts
      */
@@ -32,8 +32,8 @@ public class Car {
     }
 
     /**
-     * Constructor d'un Cotxe a partir de la matricula
-     * Els kilòmetres totals recoreguts inicial és 0 i la velocitat inicial és 0 km/h.
+     * Constructor d'un Cotxe a partir de la matrícula
+     * Els kilòmetres totals recorreguts inicials és 0 i la velocitat inicial és 0 km/h.
      * @param plate Matrícula del cotxe
      */
     public Car(String plate){
@@ -81,7 +81,7 @@ public class Car {
 
     /**
      * Condueix el cotxe durant els segons especificats.
-     * Aquest mètode actualizta els kilòmetres recorreguts tinguent en compte
+     * Aquest mètode actualitza els kilòmetres recorreguts tenint en compte
      * la velocitat actual.
      */
     public void drive(int seconds){
@@ -90,7 +90,7 @@ public class Car {
 
     /**
      * Condueix el cotxe durant un minut.
-     * Aquest mètode actualizta els kilòmetres recorreguts tinguent en compte
+     * Aquest mètode actualitza els kilòmetres recorreguts tenint en compte
      * la velocitat actual.
      * @see Car#drive()
      */
