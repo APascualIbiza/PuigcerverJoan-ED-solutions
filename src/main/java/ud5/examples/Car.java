@@ -83,6 +83,7 @@ public class Car {
      * Condueix el cotxe durant els segons especificats.
      * Aquest mètode actualitza els kilòmetres recorreguts tenint en compte
      * la velocitat actual.
+     * @param seconds Segons que el cotxe serà conduit
      */
     public void drive(int seconds){
         this.kilometers += (double) velocity * seconds / 3600;
