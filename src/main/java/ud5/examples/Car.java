@@ -7,17 +7,17 @@ package ud5.examples;
  */
 public class Car {
     /**
-     * Matrícula del cotxe
+     * Matrícula del vehicle
      */
-    private final String plate;
+    protected String plate;
     /**
      * Velocitat del cotxe en km/h
      */
-    private int velocity;
+    protected int velocity;
     /**
      * Distància total recorreguda pel cotxe en km
      */
-    private double kilometers;
+    protected double kilometers;
 
     /**
      * Constructor d'un Cotxe a partir de la matrícula i els
@@ -25,7 +25,7 @@ public class Car {
      * @param plate Matrícula del cotxe
      * @param kilometers Kilòmetres recorreguts
      */
-    public Car(String plate, int kilometers){
+    public Car(String plate, double kilometers){
         this.plate = plate;
         this.kilometers = kilometers;
         this.velocity = 0;
@@ -97,6 +97,15 @@ public class Car {
      */
     public void drive(){
         drive(60);
+    }
+
+    public void decelerate(){
+        decelerate(5);
+    }
+
+    public void decelerate(int velocity){
+        // this.velocity = velocity > this.velocity ? 0 : this.velocity - velocity;
+        this.velocity = Math.max(0, this.velocity - velocity);
     }
 
     /**
