@@ -1,4 +1,4 @@
-package ud5.practices;
+package ud5.practices.bank;
 
 public enum TransactionType {
     DEPOSIT,

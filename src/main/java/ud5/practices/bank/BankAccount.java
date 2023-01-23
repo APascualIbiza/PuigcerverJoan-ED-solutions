@@ -1,4 +1,4 @@
-package ud5.practices;
+package ud5.practices.bank;
 
 import java.util.ArrayList;
 import java.util.List;
