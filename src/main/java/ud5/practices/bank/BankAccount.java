@@ -63,6 +63,13 @@ public class BankAccount {
         return transactions;
     }
 
+    public Transaction getLastTransaction(){
+        int lastIndex = transactions.size() - 1;
+        if(lastIndex < 0)
+            return null;
+        return transactions.get(lastIndex);
+    }
+
     /**
      * TODO: Ingressa els diners especificats en el compte
      * <p>
