@@ -29,7 +29,7 @@ public class DynamicParameterizedTest {
                 DynamicTest.dynamicTest("10, 90, 100", () -> assertEquals(100, Math.addExact(10, 90))));
     }
 
-    @ParameterizedTest
+    @ParameterizedTest(name="{0} + {1} = {2}")
     @CsvSource({ "1,1,2", "2,2,4", "3,3,6",
             "4,4,8", "5,5,10", "6,6,12",
             "7,7,14", "10,90,100" })
@@ -53,7 +53,7 @@ public class DynamicParameterizedTest {
         assertTrue(text == null || text.trim().isEmpty());
     }
 
-    @ParameterizedTest
+    @ParameterizedTest(name="[{index}] {0} + {1} = {2}")
     @MethodSource("numberToSum")
     @DisplayName("Parameterized Test with MehodSource")
     public void parameterizedMehodSourceTest(int left, int right, int expected) {

@@ -1,4 +1,4 @@
-package ud5.examples;
+package ud5.exercises.buylist;
 
 import java.util.ArrayList;
 

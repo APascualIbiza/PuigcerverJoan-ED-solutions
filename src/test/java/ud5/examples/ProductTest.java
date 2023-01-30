@@ -4,6 +4,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
+import ud5.exercises.buylist.Product;
 
 import static org.junit.jupiter.api.Assertions.*;
 

@@ -1,4 +1,4 @@
-package ud5.examples;
+package ud5.exercises.buylist;
 
 public class Product {
     private String description;
@@ -6,9 +6,7 @@ public class Product {
     private int units;
 
     public Product(String description, double price) {
-        this.description = description;
-        this.price = price;
-        this.units = 1;
+        this(description, price, 1);
     }
 
     public Product(String description, double price, int units) {
