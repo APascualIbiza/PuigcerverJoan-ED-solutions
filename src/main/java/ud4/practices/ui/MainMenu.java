@@ -7,15 +7,34 @@ import ud4.practices.models.Grup;
 import java.util.List;
 import java.util.Scanner;
 
+/**
+ * Menu principal de l'aplicació
+ *
+ * @author Joan Puigcerver
+ * @version 1.1 2023-01-29
+ */
 public class MainMenu {
+    /** Scanner que permet llegir les dades introduides per l'usuari */
     private final Scanner scanner;
+    /** Base de dades on es guardaran i es llegiran les dades de l'aplicació */
     private final BaseDeDades dades;
 
+    /**
+     * Crea un menu principal amb el Scanner i la base de dades especificada.
+     * @param scanner Scanner que permet llegir les dades introduides per l'usuari
+     * @param dades Base de dades on es guardaran i es llegiran les dades de l'aplicació
+     */
     public MainMenu(Scanner scanner, BaseDeDades dades){
         this.scanner = scanner;
         this.dades = dades;
     }
 
+    /**
+     * Demana a l'usuari que introduisca una elecció entre 0 i el nombre màxim especificat.
+     * En cas que l'elecció no siga vàlida, es torna a preguntar a l'usuari.
+     * @param maxim Límit superior de l'elecció permitida per l'usuari
+     * @return Elecció de l'usuari
+     */
     public int nextIntMaxim(int maxim){
         int eleccioUsuari;
         System.out.print("Introdueix la teua elecció: ");
@@ -32,6 +51,9 @@ public class MainMenu {
         return eleccioUsuari;
     }
 
+    /**
+     * Imprimeix per pantalla el menú principal
+     */
     public void printMenu(){
         System.out.println("1. Afegir artista.");
         System.out.println("2. Afegir grup musical.");
@@ -40,6 +62,12 @@ public class MainMenu {
         System.out.println("5. Mostrar grup musical.");
         System.out.println("0. Eixir.");
     }
+
+    /**
+     * Menu principal de l'aplicació.
+     * <p>
+     * Imprimeix el menú i permet que l'usuari seleccione l'accio que vol realitzar.
+     */
     public void menu(){
         System.out.println("Benvingut a Gestió Musical.");
         int eleccioUsuari;
@@ -60,6 +88,9 @@ public class MainMenu {
         System.out.println("Adéu!");
     }
 
+    /**
+     * Permet que l'usuari puga afegir un nou artista.
+     */
     public void afegirArtista(){
         System.out.println("Afegir un nou artista:");
         System.out.print("Introdueix el nom de l'artista: ");
@@ -72,6 +103,9 @@ public class MainMenu {
         dades.addArtista(artista);
         System.out.printf("L'artista %s s'ha afegit correctament.\n", artista);
     }
+    /**
+     * Permet que l'usuari puga afegir un nou grup.
+     */
     public void afegirGrup(){
         System.out.println("Afegir un nou grup:");
         System.out.print("Introdueix el nom del grup: ");
@@ -84,6 +118,11 @@ public class MainMenu {
         dades.addGrup(grup);
         System.out.printf("El grup %s s'ha afegit correctament.\n", grup);
     }
+
+    /**
+     * Permet que l'usuari puga selecionar un artista dels presents en l'aplicació.
+     * @return Retorna l'artista seleccionat o {@code null} si l'usuari cancela l'acció.
+     */
     private Artista selectArtista(){
         System.out.println("Sel.lecciona l'artista:");
         List<Artista> artistes = dades.getArtistes();
@@ -99,6 +138,11 @@ public class MainMenu {
         else
             return artistes.get(eleccioUsuari - 1);
     }
+
+    /**
+     * Permet que l'usuari puga selecionar un grup musical dels presents en l'aplicació.
+     * @return Retorna el grup seleccionat o {@code null} si l'usuari cancela l'acció.
+     */
     private Grup selectGrup(){
         System.out.println("Sel.lecciona el grup:");
         List<Grup> grups = dades.getGrups();
@@ -115,6 +159,9 @@ public class MainMenu {
             return grups.get(eleccioUsuari - 1);
     }
 
+    /**
+     * Permet que l'usuari afegir un artista a un grup musical.
+     */
     public void afegirArtistaGrup(){
         if (dades.getArtistes().size() == 0) {
             System.out.println("No hi ha artistes disponibles.");
@@ -136,6 +183,10 @@ public class MainMenu {
         else
             System.out.printf("L'artista %s ja és membre de %s\n", a, g);
     }
+
+    /**
+     * Imprimeix per pantalla la informació d'un artista seleccionat per l'usuari.
+     */
     public void mostrarArtista(){
         if (dades.getArtistes().size() == 0) {
             System.out.println("No hi ha artistes disponibles.");
@@ -148,6 +199,9 @@ public class MainMenu {
             }
         }
     }
+    /**
+     * Imprimeix per pantalla la informació d'un grup musical seleccionat per l'usuari.
+     */
     public void mostrarGrup(){
         if (dades.getGrups().size() == 0) {
             System.out.println("No hi ha grups disponibles.");
