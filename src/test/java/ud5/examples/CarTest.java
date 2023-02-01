@@ -1,6 +1,8 @@
 package ud5.examples;
 
 import org.junit.jupiter.api.*;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -77,6 +79,23 @@ class CarTest {
         @BeforeEach
         void setup(){
             this.car = new Car("0000 BBB");
+        }
+
+
+        @ParameterizedTest(name = "Condueix {0}s a velocitat {1} km/h")
+        @CsvSource({
+                "120, 0, 0",
+                "1200, 0, 0",
+                "60, 60, 1",
+                "120, 60, 2",
+                "120, 120, 4",
+                "120, 120, 4"
+        })
+        @DisplayName("Drive")
+        void drive(int seconds, int velocity, double expectedKilometers){
+            this.car.accelerate(velocity);
+            this.car.drive(seconds);
+            assertEquals(expectedKilometers, car.getKilometers());
         }
 
         @Test

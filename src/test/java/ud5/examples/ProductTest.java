@@ -4,6 +4,8 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
 import ud5.exercises.buylist.Product;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -37,27 +39,15 @@ class ProductTest {
         }
     }
 
-    @Nested
-    @DisplayName("Tests del preu total")
-    class TotalPriceTests{
-        Product product;
-
-        @BeforeEach
-        void setup(){
-            product = new Product("Llet", 1.12, 1);
-        }
-
-        @Test
-        @DisplayName("Preu total amb 1 unitat")
-        void totalPrice1Unit(){
-            assertEquals(1.12, product.getTotalPrice());
-        }
-
-        @Test
-        @DisplayName("Preu total amb multiples unitats")
-        void totalPriceMutipleUnits(){
-            product.setUnits(5);
-            assertEquals(6, product.getTotalPrice());
-        }
+    @ParameterizedTest
+    @CsvSource({
+            "1, 1.12, 1.12",
+            "2, 1.12, 2.24",
+            "3, 0.5, 1.5",
+            "10, 0.5, 5",
+    })
+    void totalPrice(int units, double unitPrice, double expectedTotalPrice){
+        Product product = new Product("Test", unitPrice, units);
+        assertEquals(expectedTotalPrice, product.getTotalPrice(), 1e-5);
     }
 }
