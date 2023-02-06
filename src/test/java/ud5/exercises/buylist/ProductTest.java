@@ -1,12 +1,10 @@
-package ud5.examples;
+package ud5.exercises.buylist;
 
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
-import ud5.exercises.buylist.Product;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -39,7 +37,7 @@ class ProductTest {
         }
     }
 
-    @ParameterizedTest
+    @ParameterizedTest(name="Preu total producte amb {0} unitats amb preu {1}")
     @CsvSource({
             "1, 1.12, 1.12",
             "2, 1.12, 2.24",

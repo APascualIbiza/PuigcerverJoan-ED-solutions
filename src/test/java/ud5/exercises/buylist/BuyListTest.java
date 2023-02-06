@@ -38,4 +38,33 @@ class BuyListTest {
         }
         return args;
     }
+
+    List<Arguments> provideListProducts2(){
+        Product p1 = new Product("Llet", 1.12, 1);
+        Product p2 = new Product("Pa", 0.5, 3);
+        Product p3 = new Product("Café", 0.72, 5);
+        Product p4 = new Product("Xocolate", 0.2, 5);
+        BuyList buyList1 = new BuyList();
+        buyList1.addProduct(p1);
+        BuyList buyList2 = new BuyList();
+        buyList2.addProduct(p1);
+        buyList2.addProduct(p2);
+        BuyList buyList3 = new BuyList();
+        buyList3.addProduct(p1);
+        buyList3.addProduct(p2);
+        buyList3.addProduct(p3);
+        BuyList buyList4 = new BuyList();
+        buyList4.addProduct(p1);
+        buyList4.addProduct(p2);
+        buyList4.addProduct(p3);
+        buyList4.addProduct(p4);
+
+        List<Arguments> args = new ArrayList<>();
+        args.add(arguments(buyList1, 1.12));
+        args.add(arguments(buyList2, 1.12));
+        args.add(arguments(buyList3, 1.12));
+        args.add(arguments(buyList4, 1.12));
+
+        return args;
+    }
 }
