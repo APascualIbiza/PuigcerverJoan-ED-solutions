@@ -14,7 +14,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class BuyListTest {
 
     @ParameterizedTest
-    @MethodSource("provideBuyLists")
+    @MethodSource("provideBuyLists2")
     void totalPrice(BuyList buyList, double expectedTotalPrice){
         assertEquals(expectedTotalPrice, buyList.getTotalPrice());
     }
@@ -39,7 +39,7 @@ class BuyListTest {
         return args;
     }
 
-    List<Arguments> provideListProducts2(){
+    static List<Arguments> provideBuyLists2(){
         Product p1 = new Product("Llet", 1.12, 1);
         Product p2 = new Product("Pa", 0.5, 3);
         Product p3 = new Product("Café", 0.72, 5);
@@ -61,9 +61,9 @@ class BuyListTest {
 
         List<Arguments> args = new ArrayList<>();
         args.add(arguments(buyList1, 1.12));
-        args.add(arguments(buyList2, 1.12));
-        args.add(arguments(buyList3, 1.12));
-        args.add(arguments(buyList4, 1.12));
+        args.add(arguments(buyList2, 2.62));
+        args.add(arguments(buyList3, 6.22));
+        args.add(arguments(buyList4, 7.22));
 
         return args;
     }
