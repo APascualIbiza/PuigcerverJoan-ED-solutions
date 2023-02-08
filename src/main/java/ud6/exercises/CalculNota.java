@@ -35,8 +35,7 @@ public class CalculNota {
         return passaExam && passaPractices && passaTotal && passaLlindars;
     }
 
-    public static String calcularNotaButlleti(double practices, double exams, double total, int llindarsSuperats){
-        boolean passaMinimsRequirits = passaMinimsRequerits(practices, exams, total, llindarsSuperats);
+    public static String calcularNotaButlleti(double total, boolean passaMinimsRequirits){
         if (!passaMinimsRequirits)
             return "No superat";
         else if (total >= 9)
@@ -52,8 +51,8 @@ public class CalculNota {
     public static String calcularNota(double practices, double exams){
         double total = calcularNotaToal(practices, exams);
         int llindarsSuperats = calcularLlindarsSuperats(practices, exams, total);
-        String notaButlleti = calcularNotaButlleti(practices, exams, total, llindarsSuperats);
-        return notaButlleti;
+        boolean passaMinimsRequirits = passaMinimsRequerits(practices, exams, total, llindarsSuperats);
+        return calcularNotaButlleti(total, passaMinimsRequirits);
     }
 
     public static void main(String[] args) {
