@@ -44,6 +44,19 @@ public class Rectangle extends Shape {
     }
 
     /**
+     * Crea un Rectangle a partir de l'amplada i l'altura.
+     * Aquest rectangle està posicionat en l'origen de coordenades (0, 0).
+     *
+     * @param width Amplada del Rectangle.
+     * @param height Alçada del Rectangle.
+     */
+    public Rectangle(int width, int height, Color color) {
+        super(color);
+        this.width = width;
+        this.height = height;
+    }
+
+    /**
      * Crea un Rectangle a partir d'un altre Rectangle
      * @param other Rectangle que serà copiat
      */
@@ -117,5 +130,35 @@ public class Rectangle extends Shape {
     @Override
     public Rectangle clone() {
         return new Rectangle(this);
+    }
+
+    public void draw(){
+        for (int i = 0; i < height; i++) {
+            for (int j = 0; j < width; j++) {
+                System.out.print("█");
+            }
+            System.out.println();
+        }
+    }
+    public void draw(Canvas canvas){
+        for (int i = x; i < width; i++) {
+            for (int j = y; j < height; j++) {
+                System.out.print("█");
+            }
+            System.out.println();
+        }
+    }
+
+    public int top(){
+        return this.y + height;
+    }
+    public int bot(){
+        return this.y;
+    }
+    public int left(){
+        return this.x;
+    }
+    public int right(){
+        return this.x + width;
     }
 }

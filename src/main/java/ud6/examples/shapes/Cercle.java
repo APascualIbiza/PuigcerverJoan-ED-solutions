@@ -10,14 +10,14 @@ public class Cercle extends Shape {
     /**
      * El radi del Cercle.
      */
-    private double radius;
+    private int radius;
     /**
      * Crea un Cercle a partir del radi i la posició del centre.
      * @param radius Radi del Cercle
      * @param x Posició del centre del Cercle en l'eix X
      * @param y Posició del centre del Cercle en l'eix Y
      */
-    public Cercle(double radius, int x, int y) {
+    public Cercle(int radius, int x, int y) {
         super(x, y);
         this.radius = radius;
     }
@@ -26,8 +26,13 @@ public class Cercle extends Shape {
      * Crea un Cercle en l'origen de coordenades (0, 0) amb el radi especificat
      * @param radius Radi del Cercle
      */
-    public Cercle(double radius) {
+    public Cercle(int radius) {
         super();
+        this.radius = radius;
+    }
+
+    public Cercle(int radius, Color color) {
+        super(color);
         this.radius = radius;
     }
 
@@ -44,7 +49,7 @@ public class Cercle extends Shape {
      * Obté el radi del Cercle
      * @return Radi del cercle
      */
-    public double getRadius() {
+    public int getRadius() {
         return radius;
     }
 
@@ -52,7 +57,7 @@ public class Cercle extends Shape {
      * Estableix el radi del Cercle
      * @param radius Nou radi del Cercle
      */
-    public void setRadius(double radius) {
+    public void setRadius(int radius) {
         this.radius = radius;
     }
 
@@ -83,5 +88,33 @@ public class Cercle extends Shape {
      */
     public Cercle clone(){
         return new Cercle(this);
+    }
+
+    public void draw(){
+        int diameter = radius * 2;
+        int centreX = radius;
+        int centreY = radius;
+        for (int i = 0; i < diameter; i++) {
+            for (int j = 0; j < diameter; j++) {
+                double puntX = j + 0.5;
+                double puntY = i + 0.5;
+                double distance = Math.sqrt(Math.pow(puntX - centreX, 2) + Math.pow(puntY - centreY, 2));
+                System.out.print(distance >= radius ? " " : "█");
+            }
+            System.out.println();
+        }
+    }
+
+    public int top(){
+        return this.y + radius;
+    }
+    public int bot(){
+        return this.y + radius;
+    }
+    public int left(){
+        return this.x + radius;
+    }
+    public int right(){
+        return this.x + radius;
     }
 }
