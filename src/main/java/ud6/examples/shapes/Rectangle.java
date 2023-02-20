@@ -1,5 +1,7 @@
 package ud6.examples.shapes;
 
+import ud6.examples.shapes.canvas.Canvas;
+
 /**
  * Aquesta classe representa un Rectangle.
  *
@@ -10,11 +12,11 @@ public class Rectangle extends Shape {
     /**
      * Amplada del rectangle.
      */
-    private int width;
+    protected int width;
     /**
      * Altura del rectangle.
      */
-    private int height;
+    protected int height;
 
     /**
      * Crea un Rectangle especificant tots els atributs.
@@ -26,6 +28,11 @@ public class Rectangle extends Shape {
      */
     public Rectangle(int width, int height, int x, int y) {
         super(x, y);
+        this.width = width;
+        this.height = height;
+    }
+    public Rectangle(int width, int height, int x, int y, Color color) {
+        super(x, y, color);
         this.width = width;
         this.height = height;
     }
@@ -139,26 +146,5 @@ public class Rectangle extends Shape {
             }
             System.out.println();
         }
-    }
-    public void draw(Canvas canvas){
-        for (int i = x; i < width; i++) {
-            for (int j = y; j < height; j++) {
-                System.out.print("█");
-            }
-            System.out.println();
-        }
-    }
-
-    public int top(){
-        return this.y + height;
-    }
-    public int bot(){
-        return this.y;
-    }
-    public int left(){
-        return this.x;
-    }
-    public int right(){
-        return this.x + width;
     }
 }

@@ -1,5 +1,7 @@
 package ud6.examples.shapes;
 
+import ud6.examples.shapes.canvas.Canvas;
+
 /**
  * Classe que representa una figura en l'espai de coordenades.
  * @author Joan Puigcerver
@@ -105,10 +107,5 @@ public abstract class Shape implements Prototype {
         draw();
         System.out.print(Color.RESET);
     }
-    public abstract void paint(Canvas canvas);
     public abstract void draw();
-    public abstract int top();
-    public abstract int bot();
-    public abstract int left();
-    public abstract int right();
 }

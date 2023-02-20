@@ -10,7 +10,7 @@ public class Cercle extends Shape {
     /**
      * El radi del Cercle.
      */
-    private int radius;
+    protected int radius;
     /**
      * Crea un Cercle a partir del radi i la posició del centre.
      * @param radius Radi del Cercle
@@ -19,6 +19,11 @@ public class Cercle extends Shape {
      */
     public Cercle(int radius, int x, int y) {
         super(x, y);
+        this.radius = radius;
+    }
+
+    public Cercle(int radius, int x, int y, Color color) {
+        super(x, y, color);
         this.radius = radius;
     }
 
@@ -105,16 +110,4 @@ public class Cercle extends Shape {
         }
     }
 
-    public int top(){
-        return this.y + radius;
-    }
-    public int bot(){
-        return this.y + radius;
-    }
-    public int left(){
-        return this.x + radius;
-    }
-    public int right(){
-        return this.x + radius;
-    }
 }
