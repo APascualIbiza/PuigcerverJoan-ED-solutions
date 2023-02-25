@@ -80,8 +80,14 @@ public class BankAccount {
      * @return true si l'ingrés s'ha efectuat; false en altre cas.
      */
     public boolean deposit(double amount){
-        // TODO
-        return false;
+        if(amount <= 0){
+            return false;
+        }
+
+        this.balance += amount;
+        Transaction depositTransaction = new Transaction(TransactionType.DEPOSIT, amount);
+        this.transactions.add(depositTransaction);
+        return true;
     }
 
     /**
@@ -95,7 +101,13 @@ public class BankAccount {
      * @return true si la retirada s'ha efectuat; false en altre cas.
      */
     public boolean withdraw(double amount){
-        // TODO
-        return false;
+        if(amount <= 0 || amount > this.balance){
+            return false;
+        }
+
+        this.balance -= amount;
+        Transaction withdrawTransaction = new Transaction(TransactionType.WITHDRAW, amount);
+        this.transactions.add(withdrawTransaction);
+        return true;
     }
 }
