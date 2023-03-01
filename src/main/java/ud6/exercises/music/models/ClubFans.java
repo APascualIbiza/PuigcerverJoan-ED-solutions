@@ -1,6 +1,6 @@
 package ud6.exercises.music.models;
 
-public class ClubFans {
+public class ClubFans implements Prototype {
     private String nom;
     private String adreça;
     private int membres;
@@ -11,6 +11,13 @@ public class ClubFans {
         this.adreça = adreça;
         this.membres = membres;
         this.grup = grup;
+    }
+
+    private ClubFans(ClubFans other){
+        this.nom = other.nom;
+        this.adreça = other.adreça;
+        this.membres = other.membres;
+        this.grup = other.grup;
     }
 
     public String getNom() {
@@ -31,5 +38,9 @@ public class ClubFans {
 
     public void setMembres(int membres) {
         this.membres = membres;
+    }
+
+    public ClubFans clone(){
+        return new ClubFans(this);
     }
 }
