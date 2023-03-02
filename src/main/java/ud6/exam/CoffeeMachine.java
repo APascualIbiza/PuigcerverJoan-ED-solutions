@@ -41,37 +41,34 @@ public class CoffeeMachine {
                 "}";
     }
 
-    private boolean enoughIngredients(CoffeeType coffeeType, int sugar){
-        if(cups == 0) {
+    private boolean checkEnoughIngredients(CoffeeType coffeeType, int sugar) {
+        if (cups == 0) {
             System.out.println("Not enough cups to make a " + coffeeType);
-            return false;
         } else if (this.sugar < sugar) {
             System.out.println("Not enough sugar to make a " + coffeeType);
-            return false;
         } else if (this.water < coffeeType.getWaterNeeded()) {
             System.out.println("Not enough water to make a " + coffeeType);
-            return false;
         } else if (this.milk < coffeeType.getMilkNeeded()) {
             System.out.println("Not enough milk to make a " + coffeeType);
-            return false;
         } else if (this.coffeBeans < coffeeType.getBeansNeeded()) {
             System.out.println("Not enough coffeBeans to make a " + coffeeType);
-            return false;
+        } else {
+            return true;
         }
-        return true;
+        return false;
     }
 
-    private void updateIngredients(CoffeeType coffeeType, int sugar) {
+    private void updateIngredients(CoffeeType coffeeType, int sugar){
         this.cups--;
         this.sugar -= sugar;
         this.water -= coffeeType.getWaterNeeded();
         this.milk -= coffeeType.getMilkNeeded();
         this.coffeBeans -= coffeeType.getBeansNeeded();
+        System.out.println(coffeeType + " made!");
     }
 
     public boolean makeCoffee(CoffeeType coffeeType, int sugar){
-        if(enoughIngredients(coffeeType, sugar)) {
-            System.out.println(coffeeType + " made!");
+        if(checkEnoughIngredients(coffeeType, sugar)) {
             updateIngredients(coffeeType, sugar);
             return true;
         }

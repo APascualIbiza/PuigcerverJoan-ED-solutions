@@ -1,21 +1,23 @@
 package ud6.exam;
 
 /**
- * Aquesta classe representa una làmpara
+ * Representa una làmpara
  * @author Joan Puigcerver
  * @version 1.1 2023-03-01
  */
 public class Lamp {
 
-    /** Representa si la làmpara està encesa (true) o està apagada (false) */
+    /** Estat de la làmpara. Indica si està encesa o apagada */
     private boolean isOn;
 
-    /** Consumició de la làmpara en kWh */
+    /** Consum de la làmpara en kWh */
     private final double consumption;
 
     /**
-     * Crea una làmpara amb la consumició especificada. La làmpara està apagada per defecte.
-     * @param consumption Consumició de la làmpara
+     * Crea una làmpara amb el consum especificat.
+     * Per defecte, la làmpara està apagada.
+     * @param consumption Consum de la làmpara
+     * @since 1.1
      */
     public Lamp(double consumption) {
         this.consumption = consumption;
@@ -23,8 +25,9 @@ public class Lamp {
     }
 
     /**
-     * Retorna si l'estat de la làmpara
-     * @return true si la làmparà està encesa; false si està apagada
+     * Retorna l'estat de la làmpara
+     * @return true si la làmpara està encesa; false si està apagada
+     * @since 1.1
      */
     public boolean isOn(){
         return this.isOn;
@@ -32,6 +35,7 @@ public class Lamp {
 
     /**
      * Encén la làmpara
+     * @since 1.1
      */
     public void turnOn() {
         this.isOn = true;
@@ -39,6 +43,7 @@ public class Lamp {
 
     /**
      * Apaga la làmpara
+     * @since 1.1
      */
     public void turnOff() {
         this.isOn = false;
@@ -46,18 +51,19 @@ public class Lamp {
 
     /**
      * Alterna l'estat de la làmpara.
-     * Si està encesa, l'apaga. Si esta apagada, l'encén.
+     * Si està encesa, l'apaga. Si està apagada, l'encén.
+     * @since 1.1
      */
     public void toggle() {
         this.isOn = !this.isOn;
     }
 
     /**
-     * Calcula la consumició de la làmpara en kW durant els segons especificats.
+     * Calcula el consum de la làmpara durant els segons especificats.
      * Si la làmpara està apagada, no consumeix res.
-     *
-     * @param seconds Segons sobre els que es calcularà la consumició.
-     * @return Consumició de la làmpara en kW.
+     * @param seconds Segons sobre els que es calcula el consum
+     * @return Consum de la làmpara en kW
+     * @since 1.1
      */
     public double computeConsumption(double seconds) {
         if (!this.isOn) {

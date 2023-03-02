@@ -14,55 +14,57 @@ class LampTest {
     @Nested
     class IsOnTests {
         private Lamp lamp;
-
         @BeforeEach
         void setup(){
-            this.lamp = new Lamp(0.5);
+            lamp = new Lamp(5.0);
         }
 
-        @DisplayName("turnOn apagada")
+        @DisplayName("Encén làmpara encesa")
         @Test
-        void testOffTurnOn(){
-            this.lamp.turnOff();
-            this.lamp.turnOn();
-            assertTrue(lamp.isOn());
-        }
-        @DisplayName("turnOn encesa")
-        @Test
-        void testOnTurnOn(){
-            this.lamp.turnOn();
-            this.lamp.turnOn();
-            assertTrue(lamp.isOn());
+        void turnOnOn(){
+            lamp.turnOn();
+            lamp.turnOn();
+            assertTrue(lamp.isOn(), "La làmpara esta apagada quan hauria d'estar encesa.");
         }
 
-        @DisplayName("turnOff apagada")
+        @DisplayName("Encén làmpara apagada")
         @Test
-        void testOffTurnOff(){
-            this.lamp.turnOff();
-            this.lamp.turnOff();
-            assertFalse(lamp.isOn());
-        }
-        @DisplayName("turnOn encesa")
-        @Test
-        void testOnTurnOff(){
-            this.lamp.turnOn();
-            this.lamp.turnOff();
-            assertFalse(lamp.isOn());
+        void turnOnOff(){
+            lamp.turnOff();
+            lamp.turnOn();
+            assertTrue(lamp.isOn(), "La làmpara esta apagada quan hauria d'estar encesa.");
         }
 
-        @DisplayName("toggle apagada")
+        @DisplayName("Apaga làmpara encesa")
         @Test
-        void testOffTogggle(){
-            this.lamp.turnOff();
-            this.lamp.toggle();
-            assertTrue(lamp.isOn());
+        void turnOffOn(){
+            lamp.turnOn();
+            lamp.turnOff();
+            assertFalse(lamp.isOn(), "La làmpara esta encesa quan hauria d'estar apagada.");
         }
-        @DisplayName("toggle encesa")
+
+        @DisplayName("Apaga làmpara apagada")
         @Test
-        void testOnToggle(){
-            this.lamp.turnOn();
-            this.lamp.toggle();
-            assertFalse(lamp.isOn());
+        void turnOffOff() {
+            lamp.turnOff();
+            lamp.turnOff();
+            assertFalse(lamp.isOn(), "La làmpara esta encesa quan hauria d'estar apagada.");
+        }
+
+        @DisplayName("Toggle làmpara apagada")
+        @Test
+        void toggleOff() {
+            lamp.turnOff();
+            lamp.toggle();
+            assertTrue(lamp.isOn(), "La làmpara esta apagada quan hauria d'estar encesa.");
+        }
+
+        @DisplayName("Toggle làmpara encesa")
+        @Test
+        void toggleOn() {
+            lamp.turnOn();
+            lamp.toggle();
+            assertFalse(lamp.isOn(), "La làmpara esta encesa quan hauria d'estar apagada.");
         }
     }
 
@@ -72,10 +74,10 @@ class LampTest {
             "true, 60, 120, 2",
             "true, 120, 60, 2",
             "true, 120, 120, 4",
-            "true, 120, 0, 0",
-            "false, 120, 60, 0",
+            "false, 60, 60, 0",
+            "false, 120, 120, 0"
     })
-    void computeConsumption(boolean isOn, double consumption, double seconds, double expectedConsumption) {
+    void computeConsumption(boolean isOn, double consumption, double seconds, double expectedConsumption){
         Lamp lamp = new Lamp(consumption);
         if(isOn)
             lamp.turnOn();
