@@ -1,5 +1,6 @@
 package ud6.exercises;
 
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
@@ -8,7 +9,7 @@ import static ud6.exercises.CalculNota.calcularNota;
 
 class CalculNotaTest {
 
-    @ParameterizedTest
+    @ParameterizedTest(name="[{index}] Expected: {2}, Practiques: {0}, Exam: {1}")
     @CsvSource({
             "0, 0, No superat",
             "3, 3, No superat",

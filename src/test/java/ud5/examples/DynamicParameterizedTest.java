@@ -49,7 +49,7 @@ public class DynamicParameterizedTest {
     @ParameterizedTest(name="\"{0}\"")
     @NullSource
     @EmptySource
-    @ValueSource(strings = { " ", "      ", "  \n   " })
+    @ValueSource(strings = { " ", "      ", "  \n   "})
     void nullEmptyAndBlankStrings(String text) {
         assertTrue(text == null || text.trim().isEmpty());
     }
@@ -63,7 +63,7 @@ public class DynamicParameterizedTest {
 
     private static List<Arguments> numberToSum() {
         ArrayList<Arguments> args = new ArrayList<>();
-        for (int i = 1; i <= 10; i++) {
+        for (int i = 0; i <= 10; i++) {
             args.add(arguments(i, i, i + i));
         }
         return args;
