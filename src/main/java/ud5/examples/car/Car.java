@@ -1,4 +1,4 @@
-package ud5.examples;
+package ud5.examples.car;
 
 /**
  * Classe que representa un cotxe.
@@ -62,6 +62,10 @@ public class Car {
      */
     public double getKilometers() {
         return kilometers;
+    }
+
+    public void setKilometers(double kilometers) {
+        this.kilometers = kilometers;
     }
 
     /**

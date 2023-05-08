@@ -3,6 +3,7 @@ package ud5.examples;
 import org.junit.jupiter.api.*;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
+import ud5.examples.car.Car;
 
 import static org.junit.jupiter.api.Assertions.*;
 
