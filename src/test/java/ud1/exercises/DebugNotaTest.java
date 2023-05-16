@@ -28,19 +28,19 @@ class DebugNotaTest {
     }
     @Test
     void gradeTotalLlindarSuperat () {
-        assertEquals("Superat", DebugNota.grade(5.1, 4.9));
+        assertEquals("Suficient", DebugNota.grade(5.1, 4.9));
     }
     @Test
     void gradeExamLlindarSuperat () {
-        assertEquals("Superat", DebugNota.grade(7, 3.9));
+        assertEquals("Suficient", DebugNota.grade(7, 3.9));
     }
     @Test
     void gradePracticesLlindarSuperat () {
-        assertEquals("Superat", DebugNota.grade(4.75, 8));
+        assertEquals("Bé", DebugNota.grade(4.75, 8));
     }
     @Test
     void gradeExamSuperat () {
-        assertEquals("Superat", DebugNota.grade(7, 4));
+        assertEquals("Suficient", DebugNota.grade(7, 4));
     }
     @Test
     void gradeExcelent () {

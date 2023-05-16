@@ -12,24 +12,20 @@ public class DebugNota {
             llindarsSuperats++;
         if(practices < 5 && practices >= 4.75)
             llindarsSuperats++;
-        if(total < 5 && exams >= 4.75)
+        if(total < 5 && total >= 4.75)
             llindarsSuperats++;
 
         if (exams < 3.75 || practices < 4.75 || total < 4.75 || llindarsSuperats >= 2)
             return "No superat";
         else
-            if (llindarsSuperats > 0)
-                return "Superat";
-            else if (total >= 5)
-                return "Suficient";
-            else if (total >= 6)
-                return "Bé";
+            if (total >= 9)
+                return "Excel·lent";
             else if (total >= 7)
                 return "Notable";
-            else if (total >= 9)
-                return "Excel·lent";
-
-        return "No definit";
+            else if (total >= 6)
+                return "Bé";
+            else
+                return "Suficient";
     }
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in).useLocale(Locale.US);

@@ -68,18 +68,6 @@ class CarServiceImplTest {
     }
 
     @Test
-    void updateKilometers_givenCarLessKilometers_shouldUpdateAndNotSendEmail() {
-        expectedCar.setKilometers(5000);
-
-        carService.updateKilometers(expectedCar);
-
-        assertAll(
-            () -> verify(carRepository).updateKilometers(expectedCar),
-            () -> verify(emailService, never()).sendWorkshopWarning(expectedCar)
-        );
-    }
-
-    @Test
     void updateKilometers_givenCarMoreKilometers_shouldUpdateAndSendEmail() {
         expectedCar.setKilometers(200000);
 
@@ -90,4 +78,17 @@ class CarServiceImplTest {
                 () -> verify(emailService).sendWorkshopWarning(expectedCar)
         );
     }
+
+    @Test
+    void updateKilometers_givenCarLessKilometers_shouldUpdateAndNotSendEmail() {
+        expectedCar.setKilometers(5000);
+
+        carService.updateKilometers(expectedCar);
+
+        assertAll(
+                () -> verify(carRepository).updateKilometers(expectedCar),
+                () -> verify(emailService, never()).sendWorkshopWarning(expectedCar)
+        );
+    }
+
 }

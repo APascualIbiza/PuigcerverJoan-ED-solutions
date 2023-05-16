@@ -24,7 +24,7 @@ public class DynamicParameterizedTest {
                 DynamicTest.dynamicTest("2, 2, 4", () -> assertEquals(4, Math.addExact(2, 2))),
                 DynamicTest.dynamicTest("3, 3, 6", () -> assertEquals(6, Math.addExact(3, 3))),
                 DynamicTest.dynamicTest("4, 4, 8", () -> assertEquals(8, Math.addExact(4, 4))),
-                DynamicTest.dynamicTest("5, 5, 10", () -> assertEquals(9, Math.addExact(5, 5))),
+                DynamicTest.dynamicTest("5, 5, 10", () -> assertEquals(10, Math.addExact(5, 5))),
                 DynamicTest.dynamicTest("6, 6, 12", () -> assertEquals(12, Math.addExact(6, 6))),
                 DynamicTest.dynamicTest("7, 7, 14", () -> assertEquals(14, Math.addExact(7, 7))),
                 DynamicTest.dynamicTest("10, 90, 100", () -> assertEquals(100, Math.addExact(10, 90))));

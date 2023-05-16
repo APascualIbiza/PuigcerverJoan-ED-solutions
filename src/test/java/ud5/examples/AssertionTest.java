@@ -53,7 +53,7 @@ public class AssertionTest {
 
     @Test
     @DisplayName("assertArrayEquals")
-    void assertMultipleArray(){
+    void assertMultipleArrayTest(){
         double[] intExpected = {1, 2, 3};
         double[] intActual = {1, 2, 3};
 
