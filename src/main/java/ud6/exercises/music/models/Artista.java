@@ -1,5 +1,7 @@
 package ud6.exercises.music.models;
 
+import java.util.Objects;
+
 /**
  * Aquesta classe representa un Artista
  *
@@ -64,6 +66,13 @@ public class Artista implements Prototype {
     @Override
     public String toString() {
         return String.format("%s %s", nom, cognom);
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Artista artista)) return false;
+        return Objects.equals(nom, artista.nom) && Objects.equals(cognom, artista.cognom) && Objects.equals(pais, artista.pais);
     }
 
     @Override
