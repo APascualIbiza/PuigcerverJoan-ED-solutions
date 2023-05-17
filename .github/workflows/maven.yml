@@ -6,7 +6,7 @@
 # separate terms of service, privacy policy, and support
 # documentation.
 
-name: Java CI with Maven
+name: Test Java with Maven
 
 on:
   workflow_dispatch:
@@ -27,6 +27,6 @@ jobs:
         java-version: '18'
         distribution: 'temurin'
         cache: maven
-    - name: Build with Maven
+    - name: Verify with Maven
       run: mvn --batch-mode --update-snapshots verify
 
